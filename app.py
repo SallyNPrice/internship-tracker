@@ -1,3 +1,6 @@
+import json
+import os
+
 print("Internship Tracker")
 print("------------------")
 
@@ -14,6 +17,20 @@ internship = {
     "term": term,
     "status": status
 }
+
+if os.path.exists("internships.json"):
+    with open("internships.json", "r") as file:
+        internships = json.load(file)
+
+    if  isinstance(internships, dict):
+        internships = [internships]
+else:
+    internships = []
+
+internships.append(internship)
+
+with open("internships.json", "w") as file:
+    json.dump(internships, file, indent=4)
 
 print()
 print("Application Added!")
