@@ -191,6 +191,31 @@ def filter_by_status(internships):
     if not found:
         print("No internships found with that status.")
 
+def show_dashboard(internships):
+    statuses = {
+        "Interested": 0,
+        "Applied": 0,
+        "Interview": 0,
+        "Offer": 0,
+        "Rejected": 0
+    }
+
+    for internship in internships:
+        status = internship["status"]
+
+        if status in statuses:
+            statuses[status] += 1
+
+    print()
+    print("Internship Dashboard")
+    print("--------------------")
+    print("Total Internships:", len(internships))
+    print("Interested:", statuses["Interested"])
+    print("Applied:", statuses["Applied"])
+    print("Interview:", statuses["Interview"])
+    print("Offer:", statuses["Offer"])
+    print("Rejected:", statuses["Rejected"])
+
 def main():
     internships = load_internships()
 
@@ -205,7 +230,8 @@ def main():
         print("4. Update Internship")
         print("5. Delete Internship")
         print("6. Filter by Status")
-        print("7. Exit")
+        print("7. Dashboard")
+        print("8. Exit")
 
         choice = input("Choose an option: ")
 
@@ -228,6 +254,9 @@ def main():
             filter_by_status(internships)
 
         elif choice == "7":
+            show_dashboard(internships)
+
+        elif choice == "8":
             print("Goodbye!")
             break
 
