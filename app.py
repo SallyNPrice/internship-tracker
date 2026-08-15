@@ -128,7 +128,7 @@ def update_internship(internships):
             print()
             print("Current Status:", internship["status"])
 
-            new_status = input("New Status: ")
+            new_status = get_status()
             internship["status"] = new_status
 
             save_internships(internships)
