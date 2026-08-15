@@ -14,7 +14,8 @@ while True:
     print()
     print("1. Add Internship")
     print("2. View Internships")
-    print("3. Exit")
+    print("3. Search Internships")
+    print("4. Exit")
 
     choice = input("Choose an option: ")
 
@@ -64,6 +65,28 @@ while True:
                 print()
 
     elif choice == "3":
+        search = input("Search by company: ")
+
+        print()
+        print("Search Results")
+        print("--------------")
+
+        found = False
+
+        for internship in internships:
+            if search.lower() in internship["company"].lower():
+                print("Company:", internship["company"])
+                print("Position:", internship["position"])
+                print("Location:", internship["location"])
+                print("Term:", internship["term"])
+                print("Status:", internship["status"])
+                print()
+                found = True
+
+        if not found:
+            print("No internships found.")
+
+    elif choice == "4":
         print("Goodbye!")
         break
 
