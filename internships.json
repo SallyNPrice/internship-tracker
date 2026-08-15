@@ -12,5 +12,12 @@
         "location": "NYC",
         "term": "Summer 2027",
         "status": "Interested"
+    },
+    {
+        "company": "Aquatic Capital Management",
+        "position": "Software Engineer Intern",
+        "location": "Chicago",
+        "term": "Summer 2027",
+        "status": "Interested"
     }
 ]
