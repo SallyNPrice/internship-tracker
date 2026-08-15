@@ -10,57 +10,62 @@ if os.path.exists("internships.json"):
 else:
     internships = []
 
-print()
-print("1. Add Internship")
-print("2. View Internships")
-print("3. Exit")
-
-choice = input("Choose an option: ")
-
-if choice == "1":
-    company = input("Company: ")
-    position = input("Position: ")
-    location = input("Location: ")
-    term = input("Term: ")
-    status = input("Status: ")
-
-    internship = {
-        "company": company,
-        "position": position,
-        "location": location,
-        "term": term,
-        "status": status
-    }
-
-    internships.append(internship)
-
-    with open("internships.json", "w") as file:
-        json.dump(internships, file, indent=4)
-
+while True:
     print()
-    print("Application Added!")
-    print("----------------")
-    print("Company:", internship["company"])
-    print("Position:", internship["position"])
-    print("Location:", internship["location"])
-    print("Term:", internship["term"])
-    print("Status:", internship["status"])
+    print("1. Add Internship")
+    print("2. View Internships")
+    print("3. Exit")
 
-elif choice == "2":
-    print()
-    print("Saved Internships")
-    print("-----------------")
+    choice = input("Choose an option: ")
 
-    for internship in internships:
+    if choice == "1":
+        company = input("Company: ")
+        position = input("Position: ")
+        location = input("Location: ")
+        term = input("Term: ")
+        status = input("Status: ")
+
+        internship = {
+            "company": company,
+            "position": position,
+            "location": location,
+            "term": term,
+            "status": status
+        }
+
+        internships.append(internship)
+
+        with open("internships.json", "w") as file:
+            json.dump(internships, file, indent=4)
+
+        print()
+        print("Application Added!")
+        print("----------------")
         print("Company:", internship["company"])
         print("Position:", internship["position"])
         print("Location:", internship["location"])
         print("Term:", internship["term"])
         print("Status:", internship["status"])
+
+    elif choice == "2":
         print()
+        print("Saved Internships")
+        print("-----------------")
 
-elif choice == "3":
-    print("Goodbye!")
+        if len(internships) == 0:
+            print("No internships saved yet.")
+        else:
+            for internship in internships:
+                print("Company:", internship["company"])
+                print("Position:", internship["position"])
+                print("Location:", internship["location"])
+                print("Term:", internship["term"])
+                print("Status:", internship["status"])
+                print()
 
-else:
-    print("Invalid option.")
+    elif choice == "3":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid option. Please choose 1, 2, or 3.")
