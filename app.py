@@ -11,6 +11,31 @@ def get_required_input(prompt):
 
         print("This field cannot be empty. Please try again.")
 
+def get_status():
+    statuses = {
+        "1": "Interested",
+        "2": "Applied",
+        "3": "Interview",
+        "4": "Offer",
+        "5": "Rejected"
+    }
+
+    while True:
+        print()
+        print("Status:")
+        print("1. Interested")
+        print("2. Applied")
+        print("3. Interview")
+        print("4. Offer")
+        print("5. Rejected")
+
+        choice = input("Choose a status: ").strip()
+
+        if choice in statuses:
+            return statuses[choice]
+
+        print("Invalid status. Please choose 1, 2, 3, 4, or 5.")
+
 def load_internships():
     if os.path.exists("internships.json"):
         with open("internships.json", "r") as file:
@@ -28,7 +53,7 @@ def add_internship(internships):
     position = get_required_input("Position: ")
     location = get_required_input("Location: ")
     term = get_required_input("Term: ")
-    status = get_required_input("Status: ")
+    status = get_status()
 
     internship = {
         "company": company,

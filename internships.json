@@ -27,5 +27,13 @@
         "term": "Summer 2027",
         "status": "Interested",
         "date_added": "2026-08-14"
+    },
+    {
+        "company": "Anduril",
+        "position": "Software Engineer Intern",
+        "location": "United States",
+        "term": "Summer 2027",
+        "status": "Interview",
+        "date_added": "2026-08-14"
     }
 ]
