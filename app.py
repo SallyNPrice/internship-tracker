@@ -1,6 +1,6 @@
 import json
 import os
-
+from datetime import date
 
 def load_internships():
     if os.path.exists("internships.json"):
@@ -26,7 +26,8 @@ def add_internship(internships):
         "position": position,
         "location": location,
         "term": term,
-        "status": status
+        "status": status,
+        "date_added": str(date.today())
     }
 
     internships.append(internship)
@@ -40,6 +41,7 @@ def add_internship(internships):
     print("Location:", internship["location"])
     print("Term:", internship["term"])
     print("Status:", internship["status"])
+    print("Date Added:", internship["date_added"])
 
 
 def view_internships(internships):
@@ -57,8 +59,8 @@ def view_internships(internships):
         print("Location:", internship["location"])
         print("Term:", internship["term"])
         print("Status:", internship["status"])
+        print("Date Added:", internship.get("date_added", "Not recorded"))
         print()
-
 
 def search_internships(internships):
     search = input("Search by company: ")
@@ -76,6 +78,7 @@ def search_internships(internships):
             print("Location:", internship["location"])
             print("Term:", internship["term"])
             print("Status:", internship["status"])
+            print("Date Added:", internship.get("date_added", "Not recorded"))
             print()
             found = True
 
