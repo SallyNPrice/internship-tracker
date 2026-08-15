@@ -16,7 +16,8 @@ while True:
     print("2. View Internships")
     print("3. Search Internships")
     print("4. Update Internship")
-    print("5. Exit")
+    print("5. Delete Internship")
+    print("6. Exit")
 
     choice = input("Choose an option: ")
 
@@ -116,6 +117,38 @@ while True:
             print("No internship found for that company.")
 
     elif choice == "5":
+        company = input("Enter company to delete: ")
+
+        found = False
+
+        for internship in internships:
+            if internship["company"].lower() == company.lower():
+                print()
+                print("Internship Found")
+                print("----------------")
+                print("Company:", internship["company"])
+                print("Position:", internship["position"])
+                print("Status:", internship["status"])
+
+                confirm = input("Delete this internship? (y/n): ")
+
+                if confirm.lower() == "y":
+                    internships.remove(internship)
+
+                    with open("internships.json", "w") as file:
+                        json.dump(internships, file, indent=4)
+
+                    print("Internship deleted!")
+                else:
+                    print("Deletion cancelled.")
+
+                found = True
+                break
+
+        if not found:
+            print("No internship found for that company.")
+
+    elif choice == "6":
         print("Goodbye!")
         break
 

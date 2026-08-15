@@ -19,12 +19,5 @@
         "location": "Chicago",
         "term": "Summer 2027",
         "status": "Interested"
-    },
-    {
-        "company": "The Trade Desk",
-        "position": "Software Engineering Intern",
-        "location": "United States",
-        "term": "Summer 2027",
-        "status": "Interested"
     }
 ]
