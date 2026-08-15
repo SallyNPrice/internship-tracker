@@ -134,6 +134,28 @@ def delete_internship(internships):
 
     print("No internship found for that company.")
 
+def filter_by_status(internships):
+    status = input("Enter status to filter by: ")
+
+    print()
+    print("Filtered Internships")
+    print("--------------------")
+
+    found = False
+
+    for internship in internships:
+        if internship["status"].lower() == status.lower():
+            print("Company:", internship["company"])
+            print("Position:", internship["position"])
+            print("Location:", internship["location"])
+            print("Term:", internship["term"])
+            print("Status:", internship["status"])
+            print("Date Added:", internship.get("date_added", "Not recorded"))
+            print()
+            found = True
+
+    if not found:
+        print("No internships found with that status.")
 
 def main():
     internships = load_internships()
@@ -148,7 +170,8 @@ def main():
         print("3. Search Internships")
         print("4. Update Internship")
         print("5. Delete Internship")
-        print("6. Exit")
+        print("6. Filter by Status")
+        print("7. Exit")
 
         choice = input("Choose an option: ")
 
@@ -168,6 +191,9 @@ def main():
             delete_internship(internships)
 
         elif choice == "6":
+            filter_by_status(internships)
+
+        elif choice == "7":
             print("Goodbye!")
             break
 
