@@ -2,6 +2,15 @@ import json
 import os
 from datetime import date
 
+def get_required_input(prompt):
+    while True:
+        value = input(prompt).strip()
+
+        if value:
+            return value
+
+        print("This field cannot be empty. Please try again.")
+
 def load_internships():
     if os.path.exists("internships.json"):
         with open("internships.json", "r") as file:
@@ -15,11 +24,11 @@ def save_internships(internships):
 
 
 def add_internship(internships):
-    company = input("Company: ")
-    position = input("Position: ")
-    location = input("Location: ")
-    term = input("Term: ")
-    status = input("Status: ")
+    company = get_required_input("Company: ")
+    position = get_required_input("Position: ")
+    location = get_required_input("Location: ")
+    term = get_required_input("Term: ")
+    status = get_required_input("Status: ")
 
     internship = {
         "company": company,
